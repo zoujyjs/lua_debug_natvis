@@ -41,7 +41,7 @@
       </Expand>
     </Synthetic>
 
-    <Synthetic Name="cureent_frame">
+    <Synthetic Name="current_frame">
       <Expand>
         <CustomListItems>
           <Variable Name="it" InitialValue="(CallInfo *)0"/>
@@ -49,9 +49,9 @@
           <Variable Name="stack_it" InitialValue="(StackValue *)0"/>
           
           <Exec>it = ci</Exec>
-          <Exec>stack_it = it->func</Exec>
+          <Exec>stack_it = it->func.p</Exec>
           <Loop>
-            <Break Condition="stack_it == top"/>
+            <Break Condition="stack_it == top.p"/>
             <Item Name="{i}">stack_it</Item>
             <Exec>i = i + 1</Exec>
             <Exec>stack_it = stack_it + 1</Exec>
@@ -63,9 +63,9 @@
     <Item Name="l_G">l_G</Item>
 		<CustomListItems>
 			<Variable Name="it" InitialValue="(StackValue * )0" />
-			<Exec>it = stack</Exec>
+			<Exec>it = stack.p</Exec>
 			<Loop>
-				<Break Condition="it == top"/>
+				<Break Condition="it == top.p"/>
 				<Item>it->val</Item>
 				<Exec>it = it + 1</Exec>
 			</Loop>
